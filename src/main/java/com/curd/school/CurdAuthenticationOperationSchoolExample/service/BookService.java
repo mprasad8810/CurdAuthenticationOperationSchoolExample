@@ -20,10 +20,10 @@ public class BookService {
     public List<Books> getBooks(Set<Integer> yearofpublication, Set<String> booktype) {
         List<Books> booksList = new ArrayList<>();
 
-        if (yearofpublication == null || booktype == null ) {
-            bookRepository.findAll().forEach(book -> booksList.add(book));
+        if (yearofpublication != null || booktype != null ) {
+            return bookRepository.findAllByYearofpublicationInAndBooktypeIn(yearofpublication, booktype);
         }else{
-            return bookRepository.findByYearofpublicationInAndBooktypeIn(yearofpublication, booktype);
+            bookRepository.findAll().forEach(book -> booksList.add(book));
         }
         return booksList;
     }
@@ -47,5 +47,10 @@ public class BookService {
     public String removeBook(Long id){
         bookRepository.deleteById(id);
          return "Book record deleted";
+    }
+
+    public List<Books> getBookByRawQuery(Set<Integer> yearofpublication) {
+        List<Books> bookList = bookRepository.findAllByYearofpublicationIn(yearofpublication);
+        return bookList;
     }
 }

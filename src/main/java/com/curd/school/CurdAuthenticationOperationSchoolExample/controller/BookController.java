@@ -51,4 +51,9 @@ public class BookController {
         return bookService.removeBook(id);
     }
 
+    @GetMapping("/raw/books")
+    public List<Books> getBookByRawQuery(@RequestParam(value = "yearOfPublication", required = false) Set<Integer> yearofpublication){
+        return bookService.getBookByRawQuery(yearofpublication);
+    }
+
 }

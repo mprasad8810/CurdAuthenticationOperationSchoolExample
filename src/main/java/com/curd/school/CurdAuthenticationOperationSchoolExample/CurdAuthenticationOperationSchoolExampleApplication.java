@@ -10,4 +10,5 @@ public class CurdAuthenticationOperationSchoolExampleApplication {
 		SpringApplication.run(CurdAuthenticationOperationSchoolExampleApplication.class, args);
 	}
 
+
 }

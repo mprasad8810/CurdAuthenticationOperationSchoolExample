@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class Author {
+public class Authors {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,10 +22,10 @@ public class Author {
     private DateTime createdAt;
     private DateTime updatedAt;
 
-    public Author() {
+    public Authors() {
     }
 
-    public Author(Long id, String name, String gender, DateTime createdBy, DateTime updatedBy) {
+    public Authors(Long id, String name, String gender, DateTime createdBy, DateTime updatedBy) {
         this.id = id;
         this.name = name;
         this.gender = gender;

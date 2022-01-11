@@ -1,9 +1,18 @@
 package com.curd.school.CurdAuthenticationOperationSchoolExample.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "bookdetails")
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Books {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,54 +23,4 @@ public class Books {
     private Integer yearofpublication;
     private String booktype;
 
-    public Books() {
-    }
-
-    public Books(Long id, String name, String desc, Integer yearofpublication, String booktype) {
-        this.id = id;
-        this.name = name;
-        this.desc = desc;
-        this.yearofpublication = yearofpublication;
-        this.booktype = booktype;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public Integer getYearofpublication() {
-        return yearofpublication;
-    }
-
-    public void setYearofpublication(Integer yearofpublication) {
-        this.yearofpublication = yearofpublication;
-    }
-
-    public String getBooktype() {
-        return booktype;
-    }
-
-    public void setBooktype(String booktype) {
-        this.booktype = booktype;
-    }
 }

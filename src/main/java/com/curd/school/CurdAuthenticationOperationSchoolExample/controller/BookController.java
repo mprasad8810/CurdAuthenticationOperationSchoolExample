@@ -1,5 +1,6 @@
 package com.curd.school.CurdAuthenticationOperationSchoolExample.controller;
 
+import com.curd.school.CurdAuthenticationOperationSchoolExample.dto.BookDTO;
 import com.curd.school.CurdAuthenticationOperationSchoolExample.entity.Books;
 import com.curd.school.CurdAuthenticationOperationSchoolExample.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,11 @@ public class BookController {
     // Fetch one element from DB
     //Get
     @RequestMapping(value = "/books/{id}")
-    public Optional<Books> getBook(@PathVariable Long id){
-        return bookService.getBook(id);
+    public BookDTO getBook(
+            @PathVariable Long id,
+            @RequestParam(value="authorData",required=false) boolean authorData
+           ){
+        return bookService.getBook(id,authorData);
     }
 
     // PUT Method

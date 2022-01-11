@@ -1,6 +1,9 @@
 package com.curd.school.CurdAuthenticationOperationSchoolExample.entity;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.joda.time.DateTime;
 
@@ -12,6 +15,8 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Authors {
 
     @Id
@@ -21,15 +26,4 @@ public class Authors {
     private String gender;
     private DateTime createdAt;
     private DateTime updatedAt;
-
-    public Authors() {
-    }
-
-    public Authors(Long id, String name, String gender, DateTime createdBy, DateTime updatedBy) {
-        this.id = id;
-        this.name = name;
-        this.gender = gender;
-        this.createdAt = createdBy;
-        this.updatedAt = updatedBy;
-    }
 }

@@ -1,9 +1,11 @@
 package com.curd.school.CurdAuthenticationOperationSchoolExample.controller;
 
+import com.curd.school.CurdAuthenticationOperationSchoolExample.common.APIResponse;
 import com.curd.school.CurdAuthenticationOperationSchoolExample.dto.BookDTO;
 import com.curd.school.CurdAuthenticationOperationSchoolExample.entity.Books;
 import com.curd.school.CurdAuthenticationOperationSchoolExample.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
@@ -56,8 +58,14 @@ public class BookController {
     }
 
     @GetMapping("/raw/books")
-    public List<Books> getBookByRawQuery(@RequestParam(value = "yearOfPublication", required = false) Set<Integer> yearofpublication){
+    @ResponseStatus(value=HttpStatus.OK)
+    public APIResponse getBookByRawQuery(@RequestParam(value = "yearOfPublication", required = false) Set<Integer> yearofpublication){
         return bookService.getBookByRawQuery(yearofpublication);
+    }
+
+    @GetMapping("/caughtException")
+    public APIResponse getCaughtException(@RequestParam(value = "number", required = false) Integer yearofpublication){
+        return bookService.getCaughtException(yearofpublication);
     }
 
 }

@@ -13,9 +13,8 @@ import java.util.Set;
 public interface BookRepository extends JpaRepository<Books,Long> {
     List<Books> findAllByYearofpublicationInAndBooktypeIn(Set<Integer> yearofpublication, Set<String> booktype);
 
-    public static final String rawQuery = "select * from bookdetails where yearofpublication IN ?1";
+    public static final String rawQuery = "select * from bookdetails where yearofpublication IN (2018)";
 
-    @Modifying
     @Query(nativeQuery = true, value = rawQuery)
     List<Books> findAllByYearofpublicationIn(Set<Integer> yearofpublication);
 }
